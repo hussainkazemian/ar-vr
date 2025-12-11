@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Projects Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8abada 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #e94560, #0f3460, #e94560);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 100% center;
+            }
+
+            100% {
+                background-position: 0% center;
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #e94560;
+            box-shadow: 0 20px 40px rgba(233, 69, 96, 0.2);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e94560, #0f3460);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .project-description {
+            color: #b0b0b0;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .project-tag {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .open-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            font-weight: 500;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .open-link {
+            opacity: 1;
+        }
+
+        .open-link svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .open-link svg {
+            transform: translateX(5px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .project-card {
+                padding: 20px;
+            }
+
+            .project-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>3D Projects Portfolio</h1>
+        <p class="subtitle">List of Interactive Three.js WebXR Experiences projects</p>
+
+        <div class="projects-grid">
+            <a class="project-card" href="https://users.metropolia.fi/~hussaink/teleport/" target="_blank"
+                rel="noopener noreferrer">
+                <div class="project-header">
+                    <h2 class="project-title">Teleport</h2>
+                    <div class="project-icon"></div>
+                </div>
+                <p class="project-description">
+                    Immersive teleportation experience in a 3D virtual environment. Navigate through spaces using
+                    intuitive controls.
+                </p>
+                <div class="project-footer">
+                    <span class="project-tag">Three.js</span>
+                    <span class="open-link">
+                        Open Project
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <a class="project-card" href="https://users.metropolia.fi/~hussaink/dist/" target="_blank"
+                rel="noopener noreferrer">
+                <div class="project-header">
+                    <h2 class="project-title">Three.js Basics</h2>
+                    <div class="project-icon"></div>
+                </div>
+                <p class="project-description">
+                    Interactive object picking and selection system. Explore 3D models with point-and-click
+                    interactions.
+                </p>
+                <div class="project-footer">
+                    <span class="project-tag">Three.js</span>
+                    <span class="open-link">
+                        Open Project
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <a class="project-card" href="https://users.metropolia.fi/~hussaink/blender/" target="_blank"
+                rel="noopener noreferrer">
+                <div class="project-header">
+                    <h2 class="project-title">Blender</h2>
+                    <div class="project-icon"></div>
+                </div>
+                <p class="project-description">
+                    Showcase of 3D models created in Blender, rendered beautifully in the browser with Three.js.
+                </p>
+                <div class="project-footer">
+                    <span class="project-tag">Three.js</span>
+                    <span class="open-link">
+                        Open Project
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <a class="project-card" href="https://users.metropolia.fi/~hussaink/sho/" target="_blank"
+                rel="noopener noreferrer">
+                <div class="project-header">
+                    <h2 class="project-title">Sho</h2>
+                    <div class="project-icon"></div>
+                </div>
+                <p class="project-description">
+                    A dynamic 3D showcase experience with stunning visual effects and interactive elements.
+                </p>
+                <div class="project-footer">
+                    <span class="project-tag">Three.js</span>
+                    <span class="open-link">
+                        Open Project
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <a class="project-card" href="https://users.metropolia.fi/~hussaink/grap/" target="_blank"
+                rel="noopener noreferrer">
+                <div class="project-header">
+                    <h2 class="project-title">Grab</h2>
+                    <div class="project-icon"></div>
+                </div>
+                <p class="project-description">
+                    Grab and manipulate 3D objects in virtual space. Experience realistic physics-based interactions.
+                </p>
+                <div class="project-footer">
+                    <span class="project-tag">Three.js</span>
+                    <span class="open-link">
+                        Open Project
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <footer class="footer">
+            <p>It's made as a School Project</p>
+        </footer>
+    </div>
+</body>
+
+</html>
